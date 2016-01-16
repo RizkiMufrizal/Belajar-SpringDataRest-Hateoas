@@ -84,12 +84,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>angular-base64</artifactId>
-            <version>2.0.4</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>cryptojs</artifactId>
             <version>3.1.2</version>
