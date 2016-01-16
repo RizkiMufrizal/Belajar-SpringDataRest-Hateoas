@@ -3,8 +3,6 @@ package com.rizki.mufrizal.belajar.springDataRest.hateos;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.hateoas.config.EnableHypermediaSupport;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  *
@@ -17,8 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  *
  */
 @SpringBootApplication
-@EnableAuthorizationServer
-@EnableResourceServer
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 public class BelajarSpringDataRestHateos {
 
