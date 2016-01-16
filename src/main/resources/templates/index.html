@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+
+ @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ @Since Jan 16, 2016
+ @Time 8:53:41 PM
+ @Encoding UTF-8
+ @Project Belajar-SpringDataRest-Hateos
+ @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
+
+-->
+<html ng-app="Belajar">
+
+<head>
+    <title>Belajar SpringDataRest Hateos</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="webjars/lumx/0.3.96/dist/lumx.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div class="card">
+        <div class="toolbar">
+            <div class="toolbar__left mr+++">
+                <button class="btn btn--l btn--black btn--icon" lx-ripple="">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </div>
+
+            <span class="toolbar__label fs-title">Belajar Spring Data Rest &amp; Spring Hateos</span>
+
+            <div class="toolbar__right">
+                <lx-search-filter closed="" theme="light"></lx-search-filter>
+
+                <lx-dropdown position="right" from-top="">
+                    <button class="btn btn--l btn--black btn--icon" lx-ripple="" lx-dropdown-toggle="">
+                        <i class="mdi mdi-dots-vertical"></i>
+                    </button>
+
+                    <lx-dropdown-menu>
+                        <ul>
+                            <li><a ui-sref="home" class="dropdown-link">Action</a></li>
+                            <li><a class="dropdown-link">Another action</a></li>
+                            <li><a class="dropdown-link">Something else here</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-link dropdown-link--is-header">Header</a></li>
+                            <li><a class="dropdown-link">Separated link</a></li>
+                        </ul>
+                    </lx-dropdown-menu>
+                </lx-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div ui-view="lazyLoadView">
+
+    </div>
+
+    <script src="webjars/jquery/2.2.0/dist/jquery.min.js"></script>
+    <script src="webjars/velocity/1.2.3/velocity.min.js"></script>
+    <script src="webjars/moment/2.11.1/min/moment-with-locales.min.js"></script>
+    <script src="webjars/angular/1.4.8/angular.min.js"></script>
+    <script src="webjars/lumx/0.3.96/dist/lumx.min.js"></script>
+    <script src="webjars/cryptojs/3.1.2/rollups/aes.js"></script>
+    <script src="webjars/angular-ui-router/0.2.15/release/angular-ui-router.min.js"></script>
+    <script src="webjars/angular-cookies/1.4.8/angular-cookies.min.js"></script>
+    <script src="webjars/ocLazyLoad/1.0.9/dist/ocLazyLoad.js"></script>
+
+    <script type="text/javascript" src="../scripts/App.js"></script>
+    <script type="text/javascript" src="../scripts/services/LoginService.js"></script>
+</body>
+
+</html>
