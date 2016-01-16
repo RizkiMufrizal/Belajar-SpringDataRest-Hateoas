@@ -22,6 +22,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 @RepositoryRestResource(collectionResourceRel = "user", path = "user", collectionResourceDescription = @Description("API untuk crud data user"))
 public interface UserRepository extends PagingAndSortingRepository<User, String> {
 
+    @PreAuthorize("permitAll")
     @Query("select u from User u left join fetch u.userRoles pd where u.email = :email")
     User LoginUser(@Param("email") String email);
 
