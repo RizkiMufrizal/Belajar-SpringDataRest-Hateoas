@@ -15,20 +15,31 @@
   angular.module('Belajar')
     .factory('LoginService', LoginService);
 
-  LoginService.$inject = ['$http', '$cookies'];
+  LoginService.$inject = ['$http', '$cookies', '$base64'];
 
-  function LoginService($http, $cookies) {
+  function LoginService($http, $cookies, $base64) {
 
     return {
-      login: function(url) {
-        return $http.post(url);
-      },
-      isAuthenticate: function() {
-        if ($cookies.get('token')) {
-          return true;
-        } else {
-          return false;
-        }
+      login: function(login) {
+
+        var data = {
+          client_id: 'clientapp',
+          client_secret: 123456,
+          scope: 'read',
+          grant_type: 'password',
+          username: login.email,
+          password: login.password
+        };
+
+        return $http({
+          method: 'POST',
+          url: '/oauth/token',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Authorization': 'Basic ' + $base64.encode('clientapp:123456')
+          },
+          data: $.param(data)
+        });
       }
     };
 
