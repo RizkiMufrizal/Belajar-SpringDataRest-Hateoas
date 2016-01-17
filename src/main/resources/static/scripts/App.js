@@ -16,7 +16,8 @@
       'ui.router',
       'lumx',
       'oc.lazyLoad',
-      'ngCookies'
+      'ngCookies',
+      'base64'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
 
@@ -36,15 +37,24 @@
           url: '/login',
           views: {
             'lazyLoadView': {
-              template: '<h1>Hello login</h1>'
+              template: '<ng-login></ng-login>'
             }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                '../scripts/services/LoginService.js',
+                '../scripts/controllers/LoginController.js',
+                '../scripts/directives/ngLogin.js'
+              ]);
+            }]
           }
         });
 
     })
-    .run(['$rootScope', '$state', 'LoginService', function($rootScope, $state, LoginService) {
+    .run(['$rootScope', '$state', 'AuthenticateService', function($rootScope, $state, AuthenticateService) {
       $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-        if (toState.authenticate && !LoginService.isAuthenticate()) {
+        if (toState.authenticate && !AuthenticateService.isAuthenticate()) {
           $state.go('login');
           event.preventDefault();
         }
