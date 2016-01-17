@@ -21,8 +21,47 @@
                     <input type="password" ng-model="login.inputLogin.password">
                 </lx-text-field>
 
-                <button class="btn btn--m btn--blue btn--raised" ng-click="login.processLogin(login.inputLogin)" lx-ripple style="width: 300px">Login</button>
+                <button class="btn btn--m btn--blue btn--raised" ng-click="login.processLogin(login.inputLogin)" lx-ripple style="width: 150px">Login</button>
+                <button class="btn btn--m btn--green btn--raised" ng-click="login.opendDialog('modal')" lx-ripple style="width: 150px">Register</button>
+
             </form>
         </div>
     </div>
 </div>
+
+<lx-dialog class="dialog dialog--l" id="modal" auto-close="true">
+    <div class="dialog__header">
+        <div class="toolbar bgc-light-blue-300 pl++">
+            <span class="toolbar__label tc-white fs-title">
+                Register
+            </span>
+
+            <div class="toolbar__right">
+                <button class="btn btn--l btn--white btn--icon" lx-ripple lx-dialog-close>
+                    <i class="mdi mdi-close"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog__content">
+
+        <div class="p+">
+            <lx-text-field label="Email">
+                <input type="email" ng-model="login.inputRegister.email"></input>
+            </lx-text-field>
+            <lx-text-field label="Nama">
+                <input type="text" ng-model="login.inputRegister.nama"></input>
+            </lx-text-field>
+            <lx-text-field label="Password">
+                <input type="password" ng-model="login.inputRegister.password"></input>
+            </lx-text-field>
+        </div>
+
+    </div>
+
+    <div class="dialog__actions">
+        <button class="btn btn--m btn--orange btn--raised" lx-ripple lx-dialog-close>Batal</button>
+        <button class="btn btn--m btn--green btn--raised" lx-ripple lx-dialog-close ng-click="login.register(login.inputRegister)">Simpan</button>
+    </div>
+</lx-dialog>
