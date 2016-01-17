@@ -26,9 +26,9 @@
 
     login.processLogin = function(l) {
       LoginService.login(l).success(function successCallback(response) {
-        console.log('cek');
         $cookies.put('token', response.access_token);
-        $state.go('home');
+        $cookies.put('refreshToken', response.refresh_token);
+        $state.go('barang');
       }, function errorCallback(response) {});
     };
 
