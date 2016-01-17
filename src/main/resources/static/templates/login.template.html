@@ -1,0 +1,28 @@
+<!--
+
+ @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ @Since Jan 17, 2016
+ @Time 9:12:21 AM
+ @Encoding UTF-8
+ @Project Belajar-SpringDataRest-Hateos
+ @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
+
+-->
+
+<div class="mt++" flex-container="column" flex-align="space-between center">
+    <div class="mt++" flex-container="row" flex-gutter="24">
+        <div flex-item>
+            <form>
+                <lx-text-field label="Email address" fixed-label="true">
+                    <input type="email" ng-model="login.inputLogin.email">
+                </lx-text-field>
+
+                <lx-text-field label="Password" fixed-label="true">
+                    <input type="password" ng-model="login.inputLogin.password">
+                </lx-text-field>
+
+                <button class="btn btn--m btn--blue btn--raised" ng-click="login.processLogin(login.inputLogin)" lx-ripple style="width: 300px">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
