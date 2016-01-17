@@ -14,22 +14,30 @@
   angular.module('Belajar')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$cookies', 'LoginService', '$state'];
+  LoginController.$inject = ['$cookies', 'LoginService', '$state', 'LxDialogService', 'UserService'];
 
-  function LoginController($cookies, LoginService, $state) {
+  function LoginController($cookies, LoginService, $state, LxDialogService, UserService) {
     var login = this;
 
     login.inputLogin = {};
+    login.inputRegister = {};
 
     login.url = '';
 
     login.processLogin = function(l) {
       LoginService.login(l).success(function successCallback(response) {
+        console.log('cek');
         $cookies.put('token', response.access_token);
         $state.go('home');
-      }, function errorCallback(response) {
-        console.log(response);
-      });
+      }, function errorCallback(response) {});
+    };
+
+    login.opendDialog = function(dialogId) {
+      LxDialogService.open(dialogId);
+    };
+
+    login.register = function(r) {
+      UserService.register(r).success(function(data) {});
     };
 
   }
