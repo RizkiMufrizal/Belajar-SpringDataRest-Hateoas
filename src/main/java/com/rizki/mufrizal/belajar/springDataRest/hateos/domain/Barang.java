@@ -43,7 +43,7 @@ public class Barang extends ResourceSupport implements Serializable {
     private JenisBarang jenisBarang;
 
     @Column(name = "tanggal_kadaluarsa")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd")
     @Temporal(TemporalType.DATE)
     private Date tanggalKadaluarsa;
 
