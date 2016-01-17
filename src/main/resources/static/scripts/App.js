@@ -17,21 +17,31 @@
       'lumx',
       'oc.lazyLoad',
       'ngCookies',
-      'base64'
+      'base64',
+      'angular-loading-bar'
     ])
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
 
-      $urlRouterProvider.otherwise('/');
+      cfpLoadingBarProvider.includeSpinner = true;
+
+      $urlRouterProvider.otherwise('/home');
 
       $stateProvider
         .state('home', {
           url: '/home',
           views: {
             'lazyLoadView': {
-              template: '<h1>Hello Word</h1>'
+              template: '<ng-home></ng-home>'
             }
           },
-          authenticate: true
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                '../scripts/directives/ngHome.js'
+              ]);
+            }]
+          },
+          authenticate: false
         })
         .state('login', {
           url: '/login',
@@ -49,8 +59,61 @@
                 '../scripts/directives/ngLogin.js'
               ]);
             }]
-          }
+          },
+          authenticate: false
+        })
+        .state('logout', {
+          url: '/logout',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-logout></ng-logout>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                '../scripts/controllers/LogoutController.js',
+                '../scripts/directives/ngLogout.js'
+              ]);
+            }]
+          },
+          authenticate: true
+        })
+        .state('barang', {
+          url: '/barang',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-barang></ng-barang>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                '../scripts/services/BarangService.js',
+                '../scripts/controllers/BarangController.js',
+                '../scripts/directives/ngBarang.js'
+              ]);
+            }]
+          },
+          authenticate: true
         });
+
+      $httpProvider.interceptors.push(['$q', '$location', '$window', function($q, $location, $window) {
+        return {
+          'response': function(response) {
+            if (response.status === 401) {
+              console.log("Response 401");
+            }
+            return response || $q.when(response);
+          },
+          'responseError': function(rejection) {
+            if (rejection.status === 401) {
+              $window.location.href = '/#/login';
+            }
+            return $q.reject(rejection);
+          }
+        };
+      }]);
 
     })
     .run(['$rootScope', '$state', 'AuthenticateService', function($rootScope, $state, AuthenticateService) {
