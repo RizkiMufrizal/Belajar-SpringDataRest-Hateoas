@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+
+ @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ @Since Jan 17, 2016
+ @Time 6:16:17 PM
+ @Encoding UTF-8
+ @Project Belajar-SpringDataRest-Hateos
+ @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
+
+-->
+
+<button ng-click="barang.new('modal')" class="btn btn--m btn--blue btn--raised" lx-ripple>
+    Tambah
+</button>
+
+<div class="mt++" flex-container="column" flex-align="space-between center">
+    <div class="data-table-container">
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nama Barang</th>
+                    <th>Jenis Barang</th>
+                    <th>Tanggal Kadaluarsa</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="b in barang.dataBarang">
+                    <td>{{b.namaBarang}}</td>
+                    <td>{{b.jenisBarang}}</td>
+                    <td>{{b.tanggalKadaluarsa}}</td>
+                    <td>
+                        <button ng-click="barang.editBarang(b._links.barang.href, 'modal')" class="btn btn--m btn--green btn--raised" lx-ripple>
+                            <i class="mdi mdi-pencil"></i>
+                        </button>
+                        <button ng-click="barang.deleteBarang(b._links.barang.href)" class="btn btn--m btn--red btn--raised" lx-ripple>
+                            <i class="mdi mdi-delete"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<lx-dialog class="dialog dialog--l" id="modal" auto-close="true">
+    <div class="dialog__header">
+        <div class="toolbar bgc-light-blue-300 pl++">
+            <span class="toolbar__label tc-white fs-title">
+                Data Barang
+            </span>
+
+            <div class="toolbar__right">
+                <button class="btn btn--l btn--white btn--icon" lx-ripple lx-dialog-close>
+                    <i class="mdi mdi-close"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog__content">
+
+        <div class="p+">
+
+            <input type="hidden" ng-model="barang.inputBarang.urlBarang"></input>
+
+            <lx-text-field label="Nama Barang">
+                <input type="text" ng-model="barang.inputBarang.namaBarang"></input>
+            </lx-text-field>
+
+            <lx-text-field label="Jenis Barang">
+                <input type="text" ng-model="barang.inputBarang.jenisBarang"></input>
+            </lx-text-field>
+
+            <lx-date-picker label="Tanggal Kadaluarsa" model="barang.inputBarang.tanggalKadaluarsa" locale="en" allow-clear="true"></lx-date-picker>
+        </div>
+
+    </div>
+
+    <div class="dialog__actions">
+        <button class="btn btn--m btn--orange btn--raised" lx-ripple lx-dialog-close>Batal</button>
+        <button ng-hide="barang.enable" class="btn btn--m btn--blue btn--raised" lx-ripple lx-dialog-close ng-click="barang.saveBarang(barang.inputBarang)">Simpan</button>
+        <button ng-show="barang.enable" class="btn btn--m btn--green btn--raised" lx-ripple lx-dialog-close ng-click="barang.updateBarang(barang.inputBarang)">Edit</button>
+    </div>
+</lx-dialog>
