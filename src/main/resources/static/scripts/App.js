@@ -44,6 +44,7 @@
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
                 '../scripts/services/LoginService.js',
+                '../scripts/services/UserService.js',
                 '../scripts/controllers/LoginController.js',
                 '../scripts/directives/ngLogin.js'
               ]);
