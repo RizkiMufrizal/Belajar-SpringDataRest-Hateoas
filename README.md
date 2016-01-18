@@ -1,5 +1,7 @@
 # Belajar-SpringDataRest-Hateos
 
+Aplikasi ini dibuat dalam rangka belajar spring data rest dan spring hateos
+
 Untuk menjalankan aplikasi, silahkan jalankan terlebih dahulu redis untuk cache spring data redis dan spring session
 kemudian jalankan dengan perintah
 
