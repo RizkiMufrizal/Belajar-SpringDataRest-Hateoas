@@ -1,4 +1,4 @@
-# Belajar-SpringDataRest-Hateos
+# Belajar-SpringDataRest-Hateoas
 
 Aplikasi ini dibuat dalam rangka belajar spring data rest dan spring hateoas
 
