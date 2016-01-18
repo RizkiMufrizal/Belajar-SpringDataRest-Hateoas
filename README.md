@@ -1,6 +1,6 @@
 # Belajar-SpringDataRest-Hateos
 
-Aplikasi ini dibuat dalam rangka belajar spring data rest dan spring hateos
+Aplikasi ini dibuat dalam rangka belajar spring data rest dan spring hateoas
 
 Untuk menjalankan aplikasi, silahkan jalankan terlebih dahulu redis untuk cache spring data redis dan spring session
 kemudian jalankan dengan perintah
@@ -14,7 +14,7 @@ Teknologi yang digunakan :
 * Spring Security
 * Spring Oauth2
 * Spring Security JWT
-* Spring HATEOS
+* Spring HATEOAS
 * Spring Data JPA
 * Spring Data Redis
 * Thymeleaf
