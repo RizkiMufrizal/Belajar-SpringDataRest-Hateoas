@@ -4,6 +4,7 @@ import com.rizki.mufrizal.belajar.springDataRest.hateos.domain.Barang;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.Description;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 /**
  *
@@ -15,6 +16,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @Package com.rizki.mufrizal.belajar.springDataRest.hateos.repository
  *
  */
+@PreAuthorize("hasRole('ROLE_USER')")
 @RepositoryRestResource(collectionResourceRel = "barang", path = "barang", collectionResourceDescription = @Description("API untuk crud data barang"))
 public interface BarangRepositoryRest extends PagingAndSortingRepository<Barang, String> {
 
