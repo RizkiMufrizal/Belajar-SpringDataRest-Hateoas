@@ -15,9 +15,9 @@
   angular.module('Belajar')
     .factory('LoginService', LoginService);
 
-  LoginService.$inject = ['$http', '$cookies', '$base64'];
+  LoginService.$inject = ['$http', '$base64', 'UrlService'];
 
-  function LoginService($http, $cookies, $base64) {
+  function LoginService($http, $base64, UrlService) {
 
     return {
       login: function(login) {
@@ -33,7 +33,7 @@
 
         return $http({
           method: 'POST',
-          url: '/oauth/token',
+          url: UrlService.loginProcess(),
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'Authorization': 'Basic ' + $base64.encode('clientapp:123456')
