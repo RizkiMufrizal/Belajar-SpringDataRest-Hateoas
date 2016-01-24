@@ -14,15 +14,14 @@
   angular.module('Belajar')
     .controller('LogoutController', LogoutController);
 
-  LogoutController.$inject = ['$cookies', '$window'];
+  LogoutController.$inject = ['$cookies', '$window', 'UrlService'];
 
-  function LogoutController($cookies, $window) {
+  function LogoutController($cookies, $window, UrlService) {
 
     function logout() {
       $cookies.remove('token');
       $cookies.remove('refreshToken');
-      $window.location.href = '/#/';
-      console.log('cek');
+      $window.location.href = UrlService.logout();
     }
 
     logout();
