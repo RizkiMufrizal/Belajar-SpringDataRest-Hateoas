@@ -53,6 +53,7 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
+                'scripts/services/UrlService.js',
                 'scripts/services/LoginService.js',
                 'scripts/services/UserService.js',
                 'scripts/controllers/LoginController.js',
@@ -72,6 +73,7 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
+                'scripts/services/UrlService.js',
                 'scripts/controllers/LogoutController.js',
                 'scripts/directives/ngLogout.js'
               ]);
@@ -89,6 +91,7 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
+                'scripts/services/UrlService.js',
                 'scripts/services/BarangService.js',
                 'scripts/controllers/BarangController.js',
                 'scripts/directives/ngBarang.js'
@@ -108,7 +111,7 @@
           },
           'responseError': function(rejection) {
             if (rejection.status === 401) {
-              $window.location.href = '/#/login';
+              $window.location.href = $window.location.pathname + '#/login';
             }
             return $q.reject(rejection);
           }
