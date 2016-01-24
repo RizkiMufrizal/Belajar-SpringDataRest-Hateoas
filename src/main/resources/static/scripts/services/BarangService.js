@@ -15,9 +15,9 @@
   angular.module('Belajar')
     .factory('BarangService', BarangService);
 
-  BarangService.$inject = ['$http', '$cookies'];
+  BarangService.$inject = ['$http', '$cookies', 'UrlService'];
 
-  function BarangService($http, $cookies) {
+  function BarangService($http, $cookies, UrlService) {
 
     return {
       getBarang: function(url) {
@@ -33,7 +33,7 @@
       getBarangs: function(page, size) {
         return $http({
           method: 'GET',
-          url: '/api/barang?page=' + page + '&size=' + size,
+          url: UrlService.barangs(page, size),
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + $cookies.get('token')
@@ -43,7 +43,7 @@
       saveBarang: function(b) {
         return $http({
           method: 'POST',
-          url: '/api/barang',
+          url: UrlService.barang(),
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + $cookies.get('token')
