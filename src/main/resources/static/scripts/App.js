@@ -111,7 +111,7 @@
           },
           'responseError': function(rejection) {
             if (rejection.status === 401) {
-              $window.location.href = $window.location.pathname + '#/login';
+              $window.location.href = '#/login';
             }
             return $q.reject(rejection);
           }
