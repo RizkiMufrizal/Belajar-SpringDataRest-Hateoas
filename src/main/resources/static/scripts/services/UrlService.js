@@ -15,30 +15,26 @@
   angular.module('Belajar')
     .factory('UrlService', UrlService);
 
-  UrlService.$inject = ['$window'];
-
-  function UrlService($window) {
-
-    var baseUrl = $window.location.pathname;
+  function UrlService() {
 
     return {
       barangs: function(page, size) {
-        return baseUrl + 'api/barang?page=' + page + '&size=' + size;
+        return 'api/barang?page=' + page + '&size=' + size;
       },
       barang: function() {
-        return baseUrl + 'api/barang';
+        return 'api/barang';
       },
       loginProcess: function() {
-        return baseUrl + 'oauth/token';
+        return 'oauth/token';
       },
       login: function() {
-        return baseUrl + '#/login';
+        return '#/login';
       },
       logout: function() {
-        return baseUrl + '#/';
+        return '#/';
       },
       user: function() {
-        return baseUrl + 'api/user';
+        return 'api/user';
       }
     };
 
