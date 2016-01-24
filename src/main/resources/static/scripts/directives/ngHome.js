@@ -17,7 +17,7 @@
   function ngHome() {
     return {
       restrict: 'E',
-      templateUrl: '../../templates/home.template.html'
+      templateUrl: 'templates/home.template.html'
     };
   }
 })();

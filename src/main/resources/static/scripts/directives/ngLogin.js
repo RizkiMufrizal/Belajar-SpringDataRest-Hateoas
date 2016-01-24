@@ -17,7 +17,7 @@
   function ngLogin() {
     return {
       restrict: 'E',
-      templateUrl: '../../templates/login.template.html',
+      templateUrl: 'templates/login.template.html',
       controller: 'LoginController',
       controllerAs: 'login'
     };

@@ -37,7 +37,7 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
-                '../scripts/directives/ngHome.js'
+                'scripts/directives/ngHome.js'
               ]);
             }]
           },
@@ -53,10 +53,10 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
-                '../scripts/services/LoginService.js',
-                '../scripts/services/UserService.js',
-                '../scripts/controllers/LoginController.js',
-                '../scripts/directives/ngLogin.js'
+                'scripts/services/LoginService.js',
+                'scripts/services/UserService.js',
+                'scripts/controllers/LoginController.js',
+                'scripts/directives/ngLogin.js'
               ]);
             }]
           },
@@ -72,8 +72,8 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
-                '../scripts/controllers/LogoutController.js',
-                '../scripts/directives/ngLogout.js'
+                'scripts/controllers/LogoutController.js',
+                'scripts/directives/ngLogout.js'
               ]);
             }]
           },
@@ -89,9 +89,9 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
-                '../scripts/services/BarangService.js',
-                '../scripts/controllers/BarangController.js',
-                '../scripts/directives/ngBarang.js'
+                'scripts/services/BarangService.js',
+                'scripts/controllers/BarangController.js',
+                'scripts/directives/ngBarang.js'
               ]);
             }]
           },

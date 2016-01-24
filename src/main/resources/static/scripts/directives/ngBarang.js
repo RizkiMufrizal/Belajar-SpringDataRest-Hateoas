@@ -17,7 +17,7 @@
   function ngBarang() {
     return {
       restrict: 'E',
-      templateUrl: '../../templates/barang.template.html',
+      templateUrl: 'templates/barang.template.html',
       controller: 'BarangController',
       controllerAs: 'barang'
     };
