@@ -15,13 +15,13 @@
   angular.module('Belajar')
     .factory('UserService', UserService);
 
-  UserService.$inject = ['$http'];
+  UserService.$inject = ['$http', 'UrlService'];
 
-  function UserService($http) {
+  function UserService($http, UrlService) {
 
     return {
       register: function(r) {
-        return $http.post('/api/user', r);
+        return $http.post(UrlService.user(), r);
       }
     };
 
